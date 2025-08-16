@@ -4,15 +4,19 @@
 const SUPABASE_URL = 'URL_DE_TU_PROYECTO'; // ¡Pega tu URL aquí!
 const SUPABASE_ANON_KEY = 'TU_ANON_KEY'; // ¡Pega tu clave anónima aquí!
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// --- INICIA LA CORRECCIÓN ---
+// Usamos el objeto global 'supabase' (del CDN) para crear nuestro cliente
+// y lo guardamos en una variable con un nombre diferente.
+const supabaseCliente = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// --- TERMINA LA CORRECCIÓN ---
 
 // 2. Elementos del DOM
 const proyectosContainer = document.getElementById('proyectos-container');
 
 // 3. Función para obtener y mostrar los proyectos
 async function getProyectos() {
-    // Pide a la tabla 'proyectos' que nos de todos (*) los registros
-    const { data, error } = await supabase
+    // CORRECCIÓN: Ahora usamos nuestra nueva variable 'supabaseCliente'
+    const { data, error } = await supabaseCliente
         .from('proyectos')
         .select('*');
 
@@ -40,6 +44,8 @@ async function getProyectos() {
 
 // 4. Llamamos a la función cuando la página carga
 getProyectos();
+
+// ... El resto del código para el formulario se mantiene igual ...
 // app.js (continuación)
 
 const addProjectForm = document.getElementById('add-project-form');
