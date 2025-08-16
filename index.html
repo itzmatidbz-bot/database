@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Dinámico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Mis Proyectos</h1>
+    <main id="proyectos-container"></main>
+
+    <hr>
+
+    <h2>Añadir Nuevo Proyecto</h2>
+    <form id="add-project-form">
+        <input type="text" id="titulo" placeholder="Título del Proyecto" required>
+        <textarea id="descripcion" placeholder="Descripción" required></textarea>
+        <input type="url" id="url_imagen" placeholder="URL de la Imagen" required>
+        <input type="url" id="url_sitio" placeholder="URL del Sitio Web" required>
+        <button type="submit">Guardar Proyecto</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
